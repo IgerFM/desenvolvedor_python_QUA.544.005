@@ -25,10 +25,10 @@ finally:
     print("\nPrograma finalizado com sucesso")
 
 """
- -------------------- Comandos para a extensão "coment anchor" --------------------
-TODO
-FIXME
-NOTE
-REVIEW
+ -------------------- Comandos para a extensão "comment anchor" --------------------
+# TODO
+# FIXME
+# NOTE
+# REVIEW
 
 """
