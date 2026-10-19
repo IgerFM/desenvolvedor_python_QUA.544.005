@@ -1,4 +1,3 @@
-#TODO - Tarefa incompleta
 import os
 import time
 """
@@ -13,13 +12,13 @@ Não sei como, mas o professor disse que conseguiu resolver em 30 linhas
 
 """
 """ Catalogo dos filme que participam
-A ODISSEIA ||| SALA 07 14
-CARROS ||| SALA 05 L
-COYOTE VS ACME ||| SALA 03 ||| SALA 08 ||| SALA 11 6
-SPACE JAM (1996) ||| SALA 09 ||| SALA 10 L
-STREET FIGHTER ||| SALA 03 ||| SALA 04 ||| SALA 05 ||| SALA 09 14
-TOY STORY 5 ||| SALA 05 6
-VINGADORES - ULTIMATO ENCORE ||| SALA 01 ||| SALA 02 ||| SALA 06 14
+A ODISSEIA ||| SALA 07 ||| Classificação Indicativa 14
+CARROS ||| SALA 05 ||| Classificação Indicativa L
+COYOTE VS ACME ||| SALA 03 ||| SALA 08 ||| SALA 11 ||| Classificação Indicativa 06
+SPACE JAM (1996) ||| SALA 09 ||| SALA 10 ||| Classificação Indicativa L
+STREET FIGHTER ||| SALA 03 ||| SALA 04 ||| SALA 05 ||| SALA 09 ||| Classificação Indicativa 14
+TOY STORY 5 ||| SALA 05 ||| Classificação Indicativa 06
+VINGADORES - ULTIMATO ENCORE ||| SALA 01 ||| SALA 02 ||| SALA 06 ||| Classificação Indicativa 14
 """
 
 # apresentação (do programa)
@@ -27,37 +26,36 @@ os.system("cls" if os.name == "nt" else "clean")
 
 print("\n\nBem vindo ao site de ingressos da Kinoplex, por favor, se apresente para apresentarmos o nosso catalogo:\n")
 
-
 #identificação (nome, idade)
 
 nom = input("Qual o seu nome: ").strip().title()
 ida = int(input("Qual a sua idade: "))
-x = 0
+# Para definir uma variavel vazia, deve utilizar var = None
 
 #lista(apresentação e seleção)
 try:
-    
+    #Estrutura de desição para escolher o filme
     while True:
         
         print(f'\nOlá {nom}, venha conhecer o nosso catalogo:')
-        print(f"\n(01) A Odisseia ------------ Classificação 14 Anos\nSala 07")
+        print(f"\n(01) A Odisseia --------------------- Classificação 14 Anos\nSala 07")
         time.sleep(1)
-        print(f"\n(02) Carros ---------------- Classificação Livre\nSala 05")
+        print(f"\n(02) Carros ------------------------- Classificação Livre\nSala 05")
         time.sleep(1)
-        print(f"\n(03) Coyote VS Acme -------- Classificação 06 Anos\nSala 03 --- Sala 08 --- Sala 11")
+        print(f"\n(03) Coyote VS Acme ----------------- Classificação 06 Anos\nSala 03 --- Sala 08 --- Sala 11")
         time.sleep(1)
-        print(f"\n(04) Space Jam (1996) ------------- Classificação Livre\nSala 09 --- Sala 10")
+        print(f"\n(04) Space Jam (1996) --------------- Classificação Livre\nSala 09 --- Sala 10")
         time.sleep(1)
-        print(f"\n(05) Street Fighter -------- Classificação 14 Anos\nSala 03 --- Sala 04 --- Sala 05 --- Sala 09")
+        print(f"\n(05) Street Fighter ----------------- Classificação 14 Anos\nSala 03 --- Sala 04 --- Sala 05 --- Sala 09")
         time.sleep(1)
-        print(f"\n(06) Toy Story 5 ----------- Classificação 06 Anos\nSala 05")
+        print(f"\n(06) Toy Story 5 -------------------- Classificação 06 Anos\nSala 05")
         time.sleep(1)
         print(f"\n(07) Vingadores Ultimato - Encore --- Classificação 14 Anos\nSala 01 --- Sala 02 --- Sala 06")
         time.sleep(1)
         fd = int(input(f'\n\nMuito bem {nom}, digite o numero do filme do qual você gostaria de assistir: '))
         
-        #Estrutura de desição para escolher o filme
         
+        #Estrutura de desição para escolher a sala + Barreira de idade + Impressão de ingresso
         match fd:
         
             case 1:
@@ -221,3 +219,37 @@ except Exception as e:
     print(f"Algo deu errado {e}")
 finally:
     print("Programa finalizado")
+
+""" Como o professor fez:
+
+while True:
+    print("sala 1 - filme tananan")
+    print("sala 2 - filme tananan")
+    print("sala 3 - filme tananan")
+    print("sala 4 - filme tananan")
+    print("sala 5 - filme tananan")
+    print("sala 6 - filme tananan")
+    sala = input("sala desejada").strip()
+    match sala:
+        case "1":
+            idade_minima = x
+        case "2":
+            idade_minima = x
+        case "3":
+            idade_minima = x
+        case "4":
+            idade_minima = x
+        case "4":
+            idade_minima = x
+        case "5":
+            idade_minima = x
+        case "6":
+            idade_minima = x
+        case "_":
+            print("a sala não existe")
+            idade_minima = idade + 1
+    if idade >= idade_minima
+        print("ingresso")
+    else:
+        print("ingresso negado")
+"""

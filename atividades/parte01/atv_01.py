@@ -31,7 +31,8 @@ try:
     # Calcular IMC
     imc = (pes/(alt*alt))
     # Informar o estado atual do individuo
-    print(f"\nO seu IMC é atualmente de {imc}\n")
+    print(f"\nO seu IMC é atualmente de {imc:.2f}\n") 
+    # :.2f Serve para definir que so deve escrever em até 2 algarismos apos o .
     if imc < 18.5:
         print(f"E atualmente {nom} esta em um estado de Magreza\n\nSe cuide, pois não é saudavel permanecer neste estado")
 
@@ -55,3 +56,17 @@ try:
 
 except Exception as e:
     print(f"Algo deu errado\n\nError: {e}")
+
+"""
+Uma forma diferente de fazer isso seria
+
+if imc < 18.5
+elif imc < 25
+elif imc < 30
+elif imc < 35
+elif imc < 40
+elif imc >= 40
+else
+
+E isso se deve pois ele vai verificando em sequencia, onde se o ele so imprimira 1 condição e imprimira a primeira que atender ao problema
+"""

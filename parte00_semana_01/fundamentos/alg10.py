@@ -1,7 +1,7 @@
 # teclado
 
 nome = input("Digite o seu nome: \n")
-  idade = int(input("Digite a sua idade: \n"))
+idade = int(input("Digite a sua idade: \n"))
 
 # processamento
 
