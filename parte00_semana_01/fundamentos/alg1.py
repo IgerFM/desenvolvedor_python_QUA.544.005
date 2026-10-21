@@ -2,7 +2,7 @@
 
 print("Aló Mundo!")
 
-# Comentario simples
+#NOTE - Comentario simples
 
 '''
 
@@ -10,7 +10,7 @@ Comentario multiplas linhas
 
 '''
 
-"""
+""" #NOTE - 
 
 .py (arquivo python)
 .ipynb (arquivos data science)
@@ -18,8 +18,7 @@ Comentario multiplas linhas
 """
 
 """
-
--------------Comandos Git-------------
+#NOTE -------------Comandos Git-------------
 
 git init (Iniciar Repositorio)
 git add . (Adicionar tudo)
@@ -34,7 +33,7 @@ git push -u origin main (envia repositório remoto - vulgo: git hub)
 
 """
 
-É imperativo no python criar o arquivo:  .gitignore, para ignorar estas pastas inuteis
+#NOTE - É imperativo no python criar o arquivo:  .gitignore, para ignorar estas pastas inuteis
 onde esta escrito:
 venv
 .venv
@@ -44,7 +43,7 @@ env
 
 """
 
--------------Para deslogar a minha conta ou a de terceiros do git hub-------------
+#NOTE -------------Para deslogar a minha conta ou a de terceiros do git hub-------------
 
 Devo abrir o gerenciador de credenciais pelo explorar no windows
 ele esta presente em credenciais do windows

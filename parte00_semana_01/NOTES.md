@@ -67,3 +67,8 @@ asdf site com datilografia
 26/10/09
 
 baixar (GIT) em casa
+
+26/10/21
+
+Biblioteca Cython (Ela permite rodar C++ dentro do Python, isso reduzindo a latencia do Python)
+Biblitoca Jython (Permite usar Java dentro do python. Não descobriram nenhuma grande necessidade até agora)
