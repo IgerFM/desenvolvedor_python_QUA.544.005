@@ -11,6 +11,7 @@ Crie um programa que faça o seguinte:
 """
 import os
 import json
+import time
 
 usuarios = []
 
@@ -27,10 +28,12 @@ while True:
     print("Opção 05 - Gravar os Dados Referentes ao Cadastro dos Usuarios")
     print("Opção 06 - Abrir Arquivo com os Cadastros dos Usuarios")
     print("Opção 07 - Encerrar Programa")
-    menu = input("")
+    menu = input("\nSelecione o que gostaria de executar agora: ")
+    print()
 
     match menu:
-        # Cadastro 
+         
+        #SECTION - Cadastro 
         case "1":
             usuario = {}
             
@@ -41,63 +44,112 @@ while True:
 
             usuarios.append(usuario)
 
-            print(f"\nMuito bem {usuarios.get('nome')}!\n\nO seu cadastro foi bem succedido")
+            print(f"\nMuito bem {usuario.get('nome')}!\n\nO seu cadastro foi bem sucedido\n")
 
-        #TODO -  Impressão de todos 
+        #SECTION - Impressão de todos 
         case "2":
-            choskey = input("Qual Usuario voçê gostaria de alterar")
-            if choskey:
-                #TODO - if else para conferir se usuarios esta vazio
-                    pass
-            else:
-                #TODO - 
-                    pass
-
-        ##TODO -  Alteração de dados 
-        case "3":
-            choskey = input("Qual Usuario voçê gostaria de alterar")
-            if choskey:
-                #TODO - if else para conferir se usuarios esta vazio
-                    pass
-            else:
-                #TODO - 
-                    pass
-
-        ##TODO -  Exclusão 
-        case "4":
-            choskey = input("Qual Usuario voçê gostaria de alterar")
-            if choskey:
-                #TODO - if else para conferir se usuarios esta vazio
-                    pass
-            else:
-                #TODO - 
-                    pass
             
-        ##TODO -  Gravação do .json 
-        case "5":
-            with open(f"parte02/atv01/{usuarios}.json","w",encoding="uts-8") as f:
-                json.dump(usuarios, f)
-            #TODO - 
-            pass
+            n = 1 #NOTE - Jeito de listar usuarios que eu testei
+            for usuario in usuarios:
+                print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
+                for chave, valor in usuario.items():
+                    print(f"{chave}: {valor}")
+                    time.sleep(.25)
+                n += 1
+            print("")
 
-        ##TODO -  Leitura do .json 
+        #SECTION -  Alteração de dados 
+        case "3":
+
+            #NOTE - Jeito mais efetivo que o professor recomendou e eu pesoalmente adorei
+            for n, usuario in enumerate(usuarios, start=1): 
+                print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
+                for chave, valor in usuario.items():
+                    print(f"{chave}: {valor}")
+                    time.sleep(.25)
+            print("")
+
+            chosus = int(input("\nQual Usuario voçê gostaria de alterar: ").strip())
+            try:
+                for n, usuario in enumerate(usuarios, start=1): 
+                    if chosus == n:
+                        choskey = input("\nQual chave voçê gostaria de alterar: ")
+                        if choskey:
+                            usuario[choskey] = input(f"\nQual {choskey} gostaria de colocar: ")
+
+                        else:
+                            print("\nChave Invalida\n")
+
+            except Exception as e:
+                print(f"\nERROR {e}\n")
+                    
+                    
+
+        #SECTION -  Exclusão 
+        case "4":   
+
+            for n, usuario in enumerate(usuarios, start=1): 
+                print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
+                for chave, valor in usuario.items():
+                    print(f"{chave}: {valor}")
+                    time.sleep(.25)
+            print("")
+
+            chosus = int(input("\nQual Usuario voçê gostaria de excluir: ").strip())
+            try:
+                for n, usuario in enumerate(usuarios, start=1): 
+                    if chosus == n:
+                        del(usuarios[chosus-1])
+                        print(f"\nUsuario {chosus} excluido com sucesso\n")
+
+            except Exception as e:
+                print(f"ERROR {e}")
+            
+        #SECTION - Gravação do .json 
+        case "5":
+
+            for n, usuario in enumerate(usuarios, start=1): 
+                print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
+                for chave, valor in usuario.items():
+                    print(f"{chave}: {valor}")
+                    time.sleep(.25)
+            print("")
+            tobecon = input("\nGostaria de salvar os dados? (s/n)\n").lower()
+            if tobecon == "s":
+                newfile = input("\nQual o nome do arquivo que você gostaria de salvar os dados: ")
+                with open(f"atv01/{newfile}.json","w",encoding="utf-8") as f:
+                    json.dump(usuarios, f)
+                print("\nO arquivo foi salvo com sucesso!!!\n")
+                continue
+            else:
+                print("\nO arquivo não foi alterado\n")
+                continue
+
+
+        #SECTION - Leitura do .json 
         case "6":
 
-            choice = input("Qual arquivo gostaria de ler? ")
+            try:
+                opefi = input("Qual arquivo gostaria de ler? ")
+                with open(f"atv01/{opefi}.json","r",encoding="utf-8") as f:
+                    usuarios = json.load(f)
+                for n, usuario in enumerate(usuarios, start=1): 
+                    print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
+                    for chave, valor in usuario.items():
+                        print(f"{chave}: {valor}")
+                        time.sleep(.25)
+                print("")
+            except Exception as e:
+                print(f"\nNão foi possivel achar o arquivo\n")
+                continue
 
-            if choice:
-                #TODO - if else para conferir se o arquivo existe
-                    pass
-            else:
-                #TODO - 
-                    pass
-
-        # Fim
+        #SECTION - Fim
         case "7":
-            print("Programa encerrado com sucesso")            
+            print("\nPrograma encerrado com sucesso\n")            
             break
-        # Error
+
+        #SECTION - Error
         case _:
-            print("Opção invalida")
+            print("\nOpção invalida\n")
             
 
