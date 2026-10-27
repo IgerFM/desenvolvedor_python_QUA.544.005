@@ -74,4 +74,9 @@ Biblioteca Cython (Ela permite rodar C++ dentro do Python, isso reduzindo a late
 Biblitoca Jython (Permite usar Java dentro do python. Não descobriram nenhuma grande necessidade até agora)
 
 26/10/21
+
 4devs é um site de gerar nomes e dados genericos
+
+26/10/21
+
+CRUD = Create, Read, Update, Delete

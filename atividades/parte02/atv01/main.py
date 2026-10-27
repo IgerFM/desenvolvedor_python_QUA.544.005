@@ -1,4 +1,4 @@
-#TODO - Atividade 01 da parte 02
+#FIXME - Atividade 01 da parte 02
 
 """
 Crie um programa que faça o seguinte:
@@ -9,32 +9,36 @@ Crie um programa que faça o seguinte:
 - Grava os dados de todos os usuarios em .json
 - Abre .json e lista os usuarios cadastrados lá
 """
+
+#SECTION - Bibliotecas
 import os
 import json
 import time
 
+#SECTION - Listas
 usuarios = []
 
-# Limpa tela
-os.system("cls" if os.name == "nt" else "clear")
+os.system("cls" if os.name == "nt" else "clear") # Limpa tela
 
 while True:
 
-    #menu
+    #SECTION - Botões Menu
     print("Opção 01 - Cadastro de Novo Usuario")
     print("Opção 02 - Listar o Cadastro dos Usuarios")
     print("Opção 03 - Alterar o Cadastro de um Usuario")
     print("Opção 04 - Excluir o Cadastro de um Usuario")    
-    print("Opção 05 - Gravar os Dados Referentes ao Cadastro dos Usuarios")
+    print("Opção 05 - Gravar e Exportar os Dados Referentes ao Cadastro dos Usuarios")
     print("Opção 06 - Abrir Arquivo com os Cadastros dos Usuarios")
     print("Opção 07 - Encerrar Programa")
-    menu = input("\nSelecione o que gostaria de executar agora: ")
-    print()
+    menu = input("\nSelecione o que gostaria de executar agora: ").strip()
+    print("")
 
+    #SECTION - Menu
     match menu:
          
         #SECTION - Cadastro 
         case "1":
+
             usuario = {}
             
             usuario['nome'] = input("Insira o seu Nome Completo: ").strip().title()
@@ -45,6 +49,7 @@ while True:
             usuarios.append(usuario)
 
             print(f"\nMuito bem {usuario.get('nome')}!\n\nO seu cadastro foi bem sucedido\n")
+            continue
 
         #SECTION - Impressão de todos 
         case "2":
@@ -57,33 +62,37 @@ while True:
                     time.sleep(.25)
                 n += 1
             print("")
+            continue
 
         #SECTION -  Alteração de dados 
         case "3":
 
-            #NOTE - Jeito mais efetivo que o professor recomendou e eu pesoalmente adorei
+            #NOTE - Jeito mais efetivo que o professor recomendou e eu pessoalmente adorei
             for n, usuario in enumerate(usuarios, start=1): 
                 print(f"\n{"-"*40} Usuario {n} {"-"*40}\n")
                 for chave, valor in usuario.items():
                     print(f"{chave}: {valor}")
                     time.sleep(.25)
             print("")
-
-            chosus = int(input("\nQual Usuario voçê gostaria de alterar: ").strip())
             try:
+                """ #FIXME - #NOTE - Jeito mais efetivo que o professor recomendou e eu estou em duvida em como não pensei em testar isso
+                chosus = int(input("\nQual Usuario voçê gostaria de alterar: ").strip())
+                choskey = input("\nQual chave voçê gostaria de alterar: ").strip()
+                usuarios[chosus][choskey] = input(f"Qual {choskey} gostaria de colocar")
+                """
+                chosus = int(input("\nQual Usuario voçê gostaria de alterar: ").strip())
                 for n, usuario in enumerate(usuarios, start=1): 
                     if chosus == n:
-                        choskey = input("\nQual chave voçê gostaria de alterar: ")
+                        choskey = input("\nQual chave voçê gostaria de alterar: ").strip()
                         if choskey:
                             usuario[choskey] = input(f"\nQual {choskey} gostaria de colocar: ")
-
+                            continue
                         else:
                             print("\nChave Invalida\n")
-
+                            continue
             except Exception as e:
-                print(f"\nERROR {e}\n")
-                    
-                    
+                print(f"ERROR {e}")
+                continue
 
         #SECTION -  Exclusão 
         case "4":   
@@ -94,16 +103,16 @@ while True:
                     print(f"{chave}: {valor}")
                     time.sleep(.25)
             print("")
-
-            chosus = int(input("\nQual Usuario voçê gostaria de excluir: ").strip())
             try:
+                chosus = int(input("\nQual Usuario voçê gostaria de excluir: ").strip())
                 for n, usuario in enumerate(usuarios, start=1): 
                     if chosus == n:
                         del(usuarios[chosus-1])
                         print(f"\nUsuario {chosus} excluido com sucesso\n")
-
+                        continue
             except Exception as e:
                 print(f"ERROR {e}")
+                continue
             
         #SECTION - Gravação do .json 
         case "5":
@@ -125,7 +134,6 @@ while True:
                 print("\nO arquivo não foi alterado\n")
                 continue
 
-
         #SECTION - Leitura do .json 
         case "6":
 
@@ -139,17 +147,19 @@ while True:
                         print(f"{chave}: {valor}")
                         time.sleep(.25)
                 print("")
+                continue
             except Exception as e:
                 print(f"\nNão foi possivel achar o arquivo\n")
                 continue
 
         #SECTION - Fim
         case "7":
+
             print("\nPrograma encerrado com sucesso\n")            
             break
 
         #SECTION - Error
         case _:
-            print("\nOpção invalida\n")
-            
 
+            print("\nOpção invalida\n")
+            continue
