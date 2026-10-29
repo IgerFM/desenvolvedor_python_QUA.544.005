@@ -2,6 +2,13 @@
 
 print("Aló Mundo!")
 
+"""
+#NOTE - As ordem das seções que quero usar
+#SECTION - Bibliotecas
+#SECTION - Lambdas
+#SECTION - Função Principal
+#SECTION - Algoritmo de Segurança
+"""
 #NOTE - Comentario simples
 
 '''
