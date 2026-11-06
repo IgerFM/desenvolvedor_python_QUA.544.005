@@ -71,17 +71,17 @@ class Conta(IConta):
     #SECTION - Metodos Interface
     def consultar(self):
         print(f"\n{"-"*20} Dados da Conta {"-"*20}\n")
-        print(f"Nome do Titular: {self.__nome};")
-        print(f"CPF: {self.__cpf};")
-        print(f"Agência: {self.__agencia};")
-        print(f"Conta: {self.__n_conta};")
-        print(f"Saldo: R$ {self.__saldo:.2f}.")
+        print(f"Nome do Titular: {self.titular};")
+        print(f"CPF: {self.cpf};")
+        print(f"Agência: {self.agencia};")
+        print(f"Conta: {self.n_conta};")
+        print(f"Saldo: R$ {self.saldo:.2f}.")
         
     def depositar(self,valor):
-        self.__saldo += valor #NOTE - Decremento: Saldo - Valor
-        return f"\n{"-"*20} Saldo Atual da Conta {"-"*20}\n\nSaldo: R$ {self.__saldo:.2f}."
+        self.saldo += valor #NOTE - Decremento: Saldo - Valor
+        return f"{"-"*20} Saldo Atual da Conta {"-"*20}\n\nSaldo: R$ {self.__saldo:.2f}.\n\n"
         
     def sacar(self,valor):
-        self.__saldo -= valor #NOTE - Decremento: Saldo - Valor
-        return f"\n{"-"*20} Saldo Atual da Conta {"-"*20}\n\nSaldo: R$ {self.__saldo:.2f}."
+        self.saldo -= valor #NOTE - Decremento: Saldo - Valor
+        return f"{"-"*20} Saldo Atual da Conta {"-"*20}\n\nSaldo: R$ {self.__saldo:.2f}.\n\n"
         
