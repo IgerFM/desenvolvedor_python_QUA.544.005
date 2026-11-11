@@ -37,6 +37,7 @@ class Pessoa:
 class Conta(IConta):
     agencia: str
     n_conta: str
+    tipo_conta: str
     saldo: float
     titular: Pessoa
 
@@ -49,7 +50,6 @@ class Conta(IConta):
     def __float__(self):
         return self.saldo
 
-    
     #SECTION - M - __del__
     def __del__(self):
         print("A conta foi destruida com sucesso")
@@ -58,6 +58,7 @@ class Conta(IConta):
     def consultar(self):
         print(f"{'-'*20} Titular da Conta {'-'*20}")
         print(self.titular)
+        print(f"Tipo de Conta: {self.tipo_conta}")
         print(f"{'-'*20} Dados da Conta {'-'*20}")
         print(f"Agencia: {self.agencia}")
         print(f"Número da Conta: {self.n_conta}")
@@ -75,17 +76,19 @@ class Conta(IConta):
         return self.saldo
 
 #SECTION - DC - Conta Corrente
+@dataclass
 class ContaCorrente(Conta):
     taxa: float
 
-    def sacar(self,valor,taxa):
-        valor += taxa
+    def sacar(self,valor):
+        self.saldo += self.taxa
         return super().sacar(valor)
 
 #SECTION - DC - Conta Polpança
+@dataclass
 class ContaPolpanca(Conta):
     juros: float
 
-    def depositar(self,valor,juros):
-        valor += (juros/100)
+    def depositar(self,valor):
+        self.saldo += (self.juros/100)
         return super().depositar(valor)
