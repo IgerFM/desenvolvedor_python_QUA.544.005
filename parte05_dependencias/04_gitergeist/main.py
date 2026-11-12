@@ -4,7 +4,7 @@ import pyautogui as auto #!SECTION
 
 #SECTION - Main
 def main():
-    hoje = date.today().strftime("%Y/%m/%d")
+    hoje = date.today().strftime("%y/%m/%d")
 
     auto.PAUSE = 1
     auto.hotkey("win","r")
@@ -31,5 +31,7 @@ if __name__ == "__main__":
 #NOTE - Este.exe sera limitado, ele apenas dara o git add . e o git commit para este repositorio
 
 #NOTE - Iremos aprender como gerar um .exe
+
+#NOTE - Para isso utilizamos a biblioteca pyinstaller onde rodamos o comando 'pyinstaller --onefile --name "gitergeist_v1.0" --icon "092-pixel.ico" main.py' que gera um .exe
 
 #!SECTION
