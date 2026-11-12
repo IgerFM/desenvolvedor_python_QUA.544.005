@@ -34,4 +34,10 @@ if __name__ == "__main__":
 
 #NOTE - Para isso utilizamos a biblioteca pyinstaller onde rodamos o comando 'pyinstaller --onefile --name "gitergeist_v1.0" --icon "092-pixel.ico" main.py' que gera um .exe
 
+#NOTE - mas o ideal é usar o 'pyinstaller --onefile --name "gitergeist_v1.0" --icon=092-pixel.ico main.py'
+
+#NOTE - Para baixar o programa, precisamos baixar apenas a pasta dist com o .exe
+
+#NOTE - Este programa roda perfeitamente no windows, e não funciona 100% no linux, pois alem do programa rodar no CMD, ele tambem não roda por conta de estar rodar em .exe
+
 #!SECTION
